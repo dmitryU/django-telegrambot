@@ -114,6 +114,7 @@ class DjangoTelegramBot(AppConfig):
                     return None
             return cls.updaters[index]
 
+
     @classmethod
     def getUpdater(cls, id=None, safe=True):
         return cls.get_updater(id, safe)
@@ -170,6 +171,7 @@ class DjangoTelegramBot(AppConfig):
                     hookurl = '{}/{}/{}/'.format(webhook_site, webhook_base, token)
 
                     max_connections = b.get('WEBHOOK_MAX_CONNECTIONS', 40)
+
                     if bot.getWebhookInfo().url != hookurl:
                         setted = bot.setWebhook(hookurl, certificate=certificate, timeout=timeout,
                                                 max_connections=max_connections, allowed_updates=allowed_updates)
